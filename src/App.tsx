@@ -1,15 +1,27 @@
 import React from 'react';
 import './App.css';
-
+import Home from './paginas/home/Home';
+import Navbar from './Components/navBar/NavBar';
+import Footer from './Components/footer/Footer';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import Login from './paginas/login/Login';
 
 function App() {
 
-
+  
   return (
     <>
-    <h1 className="text-3xl font-bold text-red-500 underline text-center">
-      Hello world!
-    </h1>
+    <BrowserRouter>
+        <Navbar />
+          <div className='min-h-[80vh]'>
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/login" element={<Login />} />
+              <Route path="/home" element={<Home />} />
+            </Routes>
+          </div>
+          <Footer />
+        </BrowserRouter>
     </>
 );
 }
